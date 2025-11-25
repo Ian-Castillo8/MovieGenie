@@ -13,7 +13,7 @@ def load_movie_data(filepath="movie_data.txt"):
     questions = []
 
     if not os.path.exists(filepath):
-        print("⚠ movie_data.txt not found. Running without movie list.")
+        print("movie_data.txt not found. Running without movie list.")
         return movies
 
     with open(filepath, "r", encoding="utf-8") as file:
@@ -34,7 +34,7 @@ def load_movie_data(filepath="movie_data.txt"):
         if current_movie and questions:
             movies[current_movie] = questions
 
-    print("✔ Loaded movie_data.txt successfully.")
+    print(" Loaded movie_data.txt successfully.")
     return movies
 
 movie_data = load_movie_data()
