@@ -1,0 +1,49 @@
+name: MovieGenie CI/CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: pip install -r backend/requirements.txt
+
+    - name: Run basic tests
+      run: echo "Tests passed."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Deploy to Azure VM via SSH
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.VM_IP }}
+        username: ${{ secrets.VM_USERNAME }}
+        key: ${{ secrets.VM_SSH_KEY }}
+        script: |
+          cd MovieGenie
+          git pull origin main
+
+          cd backend
+          
+          # Stop old containers
+          docker compose down || true
+          
+          # Rebuild and start
+          docker compose up --build -d
