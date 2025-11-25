@@ -1,0 +1,64 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #1a001a, #4b0082);
+    color: gold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 20px;
+    text-shadow: 3px 3px 8px purple;
+}
+
+#genie {
+    width: 220px;
+    margin-top: 20px;
+    animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-15px); }
+}
+
+#game-box, #result-box {
+    margin: 30px auto;
+    padding: 30px;
+    width: 70%;
+    background: rgba(75,0,130,0.85);
+    border-radius: 25px;
+    border: 3px solid gold;
+    box-shadow: 0 0 25px purple;
+}
+
+button {
+    background: gold;
+    color: black;
+    padding: 15px 35px;
+    margin: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: orange;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px gold;
+}
+
+#result-box h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 10px gold, 0 0 20px purple;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 2px 2px 10px gold, 0 0 20px purple; }
+    to { text-shadow: 2px 2px 20px gold, 0 0 40px purple; }
+}

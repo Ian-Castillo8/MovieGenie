@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Movie Genie Akinator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Movie Genie Akinator</h1>
+<img id="genie" src="genie.jpg" alt="Genie">
+
+<div id="game-box">
+    <h2 id="question">Think of a movie in your mind. Ready?</h2>
+    <button onclick="answer(1)">Yes</button>
+    <button onclick="answer(0)">No</button>
+</div>
+
+<div id="result-box" style="display:none;">
+    <h2> I think your movie is:</h2>
+    <h1 id="result"></h1>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
