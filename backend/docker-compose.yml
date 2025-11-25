@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  moviegenie-backend:
+    build: .
+    container_name: moviegenie-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
